@@ -1,0 +1,57 @@
+<div id="pageHeader" class="bottom-spacing-3x">
+    <div class="row">
+        <div class="column text-center">
+            <i class="icon design_code icon_head top-spacing-1x bottom-spacing-1x"></i>
+        </div>
+    </div>
+    <div class="row align-center">
+        <div class="columns small-5 text-right"><h4><a routerLink="/biddersList">View your bidders</a></h4></div>
+        <div class="columns small-2 text-center" *ngIf="bidderTitle"><i class="icon arrows-1_minimal-right"></i></div>
+        <div class="columns small-5 text-left" *ngIf="bidderTitle"><h4>{{bidderTitle}}</h4></div>
+    </div>
+</div>
+<ng-template [ngIf]="bidderTitle">
+    <form (ngSubmit)="updateBidder(bidderItem.id,bidderForm.value)"  #bidderForm="ngForm">
+        <div class="row">
+                <div class="columns small-12 bottom-spacing-2x">
+                <div class="row align-center">
+                    <h4> Bidder Settings </h4>
+                </div>
+                </div>
+                <div class="columns small-8">
+                    <div class="row align-left">
+                        <div class="columns small-6">
+                            <label class="title-label" for="name"> Bidder Name</label>
+                            <div [ngClass]="{'form-control-error':name.invalid&&name.dirty}">
+                                <input id="name" name="name"  #name="ngModel" type="text" placeholder="Bidder Name" [(ngModel)]="bidderItem.name" class="bottom-spacing-half-x" required/>
+                                <div class="form-control-error--message" [hidden]="name.valid || name.pristine">Bidder Name is required</div>
+                            </div>
+                        </div>
+                        <div class="columns small-6">
+                            <label class="title-label" for="endpoint"> Endpoint URL</label>
+                            <div [ngClass]="{'form-control-error':endpoint.invalid&&endpoint.dirty}">
+                                <input id="endpoint" name="endpoint" #endpoint="ngModel" type="text" placeholder="Endpoint URL" [(ngModel)]="bidderItem.endpoint" class="bottom-spacing-half-x" required>
+                                <div class="form-control-error--message" [hidden]="endpoint.valid || endpoint.pristine">Endpoint URL is required</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns small-12 top-spacing-4x">
+                    <div class="row align-center">
+                        <button class="button primary saveBtn" [disabled]="bidderForm.invalid||(name.pristine&&endpoint.pristine)"> SAVE </button>
+                    </div>
+                </div>
+        </div>
+    </form>
+</ng-template>
+<!-- If an Error occured -->
+<ng-template [ngIf]="errorMessage">
+    <div class="row align-center">
+        <div class="columns">
+            <div class="global-alert error text-center">
+                <i class="global-alert-icon icon ui-1_bell-53"></i>
+                {{errorMessage}}
+            </div>
+        </div>
+    </div>
+</ng-template>

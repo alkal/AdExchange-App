@@ -1,0 +1,75 @@
+<div class="side-menu-layout__container">
+  <!-- Menu -->
+  <div class="side-menu-layout__menu expanded">
+    <!-- Header -->
+    <header>
+      <!-- Menu responsive button (with animation)-->
+      <button class="side-menu-layout__menu__mobile-trigger"><i></i></button>
+      <!-- Link to main page -->
+      <a href="#">
+        <img width="120" src="https://s3.amazonaws.com/avocarrot-style-guide/4.0/images/avocarrot-skin/logo/full-light.png" alt="Logo">
+      </a>
+    </header>
+    <!-- Navigation Content -->
+    <nav>
+      <ul>
+        <li>
+          <a href="#">
+              <i class="icon location_world"></i>
+              <span>INVENTORY</span>
+            </a>
+        </li>
+        <li>
+          <a href="#">
+              <i class="icon files_single-content-03"></i>
+              <span>REPORTING</span>
+            </a>
+        </li>
+        <li>
+          <a routerLinkActive="active" class="active" routerLink="/biddersList">
+              <i class="icon design_code"></i>
+              <span>BIDDERS</span>
+            </a>
+        </li>
+      </ul>
+      <!-- Optional Seperator -->
+      <hr>
+      <ul>
+        <!-- Secondary link -->
+        <li class="side-menu-layout__secondary-link">
+          <a href="/integration">
+              <i class="icon icon ui-1_settings-gear-63"></i>
+              <span>INTEGRATION</span>
+            </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Footer -->
+    <footer>
+      Glispa Connect 2018. All rights reserved
+    </footer>
+  </div>
+  <!-- Content Wrapper -->
+  <div class="side-menu-layout__content-wrapper">
+    <!-- Header -->
+    <div class="side-menu-layout__header">
+      <div class="clearfix">
+        <div class="float-left"><h3>BIDDERS</h3></div>
+        <div class="float-right">
+          <div class="dropdown">
+            <div class="dropdown-trigger dropdown-trigger--icon">
+              <button type="button">
+               <i class="icon users_circle-08 x3"></i>
+             </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Content -->
+    <div class="side-menu-layout__content">
+      <!-- <bidders-list></bidders-list> -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

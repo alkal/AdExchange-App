@@ -1,0 +1,52 @@
+@import "variables";
+@import "mixins";
+
+
+a{color:$link-color;}
+.button.primary{background-color: $primary-btn;}
+
+.side-menu-layout__menu{
+    ul{
+        li{
+            a{
+                &.active,&:hover:not(.disabled){
+                    color:$link-color;
+                }
+                &:hover>i.icon{
+                    color:$link-color;
+                }
+            }
+        }
+    }
+}
+
+.side-menu-layout__content{
+    @include normalFontStyle;
+
+    #pageHeader{
+        @include pageHeader;
+        .icon_head{
+            @include iconHead;
+        }
+    }
+
+    .card__title{
+        @include titleFontStyle;
+    }   
+    .panel{
+        @include panelEntity;
+        &+.panel{
+            @include panelSpace; 
+        }
+        .bidder-details-view{
+            position:relative;
+            p{margin:0;}
+            &~div{margin-top: 24px;}
+            &>.icon{position: absolute;right: 0;top:50%;transform: translateY(-50%);}
+        }
+    }
+
+    .columns{
+        .global-alert{min-width: auto;}
+    }
+}

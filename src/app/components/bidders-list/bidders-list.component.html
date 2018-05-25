@@ -1,0 +1,39 @@
+<div id="pageHeader" class="bottom-spacing-3x">
+    <div class="row">
+        <div class="column text-center">
+            <i class="icon design_code icon_head top-spacing-1x bottom-spacing-1x"></i>
+        </div>
+    </div>
+    <div class="row align-center">
+        <h3>View your bidders</h3>
+    </div>
+</div>
+<div class="row align-center">
+    <div class="columns small-4" *ngFor="let state of bidderState; let i='index+1';">
+        <div class="card">
+            <p class="card__title">{{i}}. {{state}}</p>
+            <div  class="panel" *ngFor="let bidder of getBidders(state)">
+              <div class="bidder-details-view">
+                <p [class.bidderName]="bidder.name">{{bidder.name}}</p>
+                <p class="small-10 text--truncate" [class.bidderEndpoint]="bidder.endpoint">{{ bidder.endpoint }}</p>
+                <i class="icon ui-1_settings-gear-63 x1"></i>
+              </div>
+              <div class="bidder-details-link">
+                <a *ngIf="bidder.state==='CREATED'" class="bidderLink editLink" [routerLink]="['/view-bidder', bidder.id]">Validate your bidder</a>
+                <a *ngIf="bidder.state==='LIVE'" class="bidderLink liveLink" href="#">Live your bidder</a>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- If an Error occured -->
+<ng-template [ngIf]="errorMessage">    
+    <div class="row align-center">
+        <div class="columns">
+            <div class="global-alert error text-center">
+                <i class="global-alert-icon icon ui-1_bell-53"></i>
+                {{errorMessage}}
+            </div>
+        </div>
+    </div>
+</ng-template>
