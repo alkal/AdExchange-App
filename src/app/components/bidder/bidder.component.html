@@ -14,9 +14,9 @@
     <form (ngSubmit)="updateBidder(bidderItem.id,bidderForm.value)"  #bidderForm="ngForm">
         <div class="row">
                 <div class="columns small-12 bottom-spacing-2x">
-                <div class="row align-center">
-                    <h4> Bidder Settings </h4>
-                </div>
+                    <div class="row align-center">
+                        <h4> Bidder Settings </h4>
+                    </div>
                 </div>
                 <div class="columns small-8">
                     <div class="row align-left">
@@ -35,6 +35,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="columns small-12 top-spacing-4x">
+                    <app-geos></app-geos>
                 </div>
                 <div class="columns small-12 top-spacing-4x">
                     <div class="row align-center">

@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 import { BidderApiService } from './services/bidder-api.service';
 import { BiddersListComponent } from './components/bidders-list/bidders-list.component';
 import { BidderComponent } from './components/bidder/bidder.component';
+import { GeosComponent } from './components/geos/geos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BiddersListComponent,
-    BidderComponent
+    BidderComponent,
+    GeosComponent
   ],
   imports: [
     BrowserModule,

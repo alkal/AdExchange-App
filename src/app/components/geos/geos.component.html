@@ -1,0 +1,28 @@
+<div class="panel">
+  <section class="content-panel-section">
+    <div class="content-panel-navigation content-panel-navigation--full-width">
+      <div class="row text-center small-up-1 medium-up-2 large-up-3">
+        <div class="column content-panel-navigation__item selected">
+          <button type="button">Whitelisted Geos</button>
+        </div>
+        <div class="column content-panel-navigation__item">
+          <button type="button">Blacklisted Geos</button>
+        </div>
+      </div>
+    </div>
+    <input 
+      type="text"
+      ngModel
+      #searchItem="ngModel"
+      (keyup)="searchLocation(searchItem.value.toLocaleUpperCase())"
+      class="dropdown-search" 
+      placeholder="Search..." />
+    <p>Text...</p>
+    <div *ngFor="let location of searchItems;">
+          <div class="checkbox" >
+        <input type="checkbox" id="{{location}}" (click)="addNewLocation(location)">
+        <label for="checkbox-1">{{location}}</label>
+      </div>
+      </div>
+  </section>
+</div>
